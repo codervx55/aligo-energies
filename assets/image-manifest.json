@@ -1,0 +1,8 @@
+{
+  "logo": "assets/images/aligo-logo.jpg",
+  "reference_images": {
+    "hero": "assets/images/hero-harvest-reference.jpg",
+    "cassava_drying": "assets/images/cassava-drying-reference.jpg"
+  },
+  "warning": "Replace reference images with verified site photographs before launch."
+}
