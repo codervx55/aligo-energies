@@ -252,6 +252,21 @@
   }
 
   /* Responsive */
+  /* ===== Extra gallery sections ===== */
+  .gallery-sub { margin: 80px 0 28px; }
+  .gallery-sub .tag {
+    display: flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 800;
+    letter-spacing: 0.2em; text-transform: uppercase; color: #a47a1c; margin-bottom: 10px;
+  }
+  .gallery-sub .tag::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+  .gallery-sub h2 {
+    font-family: var(--serif); font-size: clamp(26px, 3.4vw, 36px); font-weight: 600;
+    line-height: 1.2; color: var(--green);
+  }
+  .gallery-item.portrait { aspect-ratio: 3/4; }
+  .gallery-item.short { aspect-ratio: 8/3; }
+  .gallery-grid { grid-auto-flow: dense; }
+
   @media (max-width: 980px) {
     .main-nav { display: none; }
     .menu-toggle { display: block; }
@@ -262,8 +277,11 @@
       grid-column: span 2;
     }
     .gallery-item.tall {
-      grid-row: span 1;
+      grid-row: span 2;
     }
+    .gallery-main { grid-auto-rows: 230px; }
+    .gallery-main .gallery-item,
+    .gallery-main .gallery-item.short { aspect-ratio: auto; }
   }
   @media (max-width: 600px) {
     .gallery-grid {
@@ -272,6 +290,11 @@
     .gallery-item.wide {
       grid-column: span 1;
     }
+    .gallery-item.short { aspect-ratio: 4/3; }
+    .gallery-main { grid-auto-rows: auto; }
+    .gallery-main .gallery-item,
+    .gallery-main .gallery-item.short { aspect-ratio: 4/3; }
+    .gallery-main .gallery-item.tall { grid-row: span 1; aspect-ratio: 3/4; height: auto; }
     .page-hero { padding: 90px 0 70px; }
     .footer-grid { grid-template-columns: 1fr; }
   }
@@ -320,56 +343,124 @@
   <!-- GALLERY -->
   <section class="section section-cream">
     <div class="container">
-      <div class="gallery-grid">
+      <div class="gallery-grid gallery-main">
 
         <!-- 1 -->
         <div class="gallery-item tall">
-          <img src="images/gallery-aerial-site.jpg" alt="Aerial view of Aligo Energies project site">
+          <img src="images/gallery-aerial-site.jpg" alt="Aerial view of Aligo Energies project site" loading="lazy" decoding="async">
           <div class="gallery-caption">Aerial View of Project Site</div>
         </div>
 
         <!-- 2 -->
         <div class="gallery-item">
-          <img src="images/gallery-construction-site.jpg" alt="Construction site with bulldozer">
+          <img src="images/gallery-construction-site.jpg" alt="Construction site with bulldozer" loading="lazy" decoding="async">
           <div class="gallery-caption">Construction Progress</div>
         </div>
 
         <!-- 3 -->
         <div class="gallery-item">
-          <img src="images/gallery-bulldozer-work.jpg" alt="Bulldozer clearing land">
+          <img src="images/gallery-bulldozer-work.jpg" alt="Bulldozer clearing land" loading="lazy" decoding="async">
           <div class="gallery-caption">Land Clearing</div>
         </div>
 
         <!-- 4 -->
         <div class="gallery-item wide">
-          <img src="images/gallery-construction-workers.jpg" alt="Workers at the construction site">
+          <img src="images/gallery-construction-workers.jpg" alt="Workers at the construction site" loading="lazy" decoding="async">
           <div class="gallery-caption">Construction Workers on Site</div>
         </div>
 
         <!-- 5 -->
         <div class="gallery-item">
-          <img src="images/gallery-site-discussion.jpg" alt="Site discussion">
+          <img src="images/gallery-site-discussion.jpg" alt="Site discussion" loading="lazy" decoding="async">
           <div class="gallery-caption">Site Meeting</div>
         </div>
 
         <!-- 6 -->
         <div class="gallery-item">
-          <img src="images/gallery-cassava-harvest.jpg" alt="Harvested cassava roots">
+          <img src="images/gallery-cassava-harvest.jpg" alt="Harvested cassava roots" loading="lazy" decoding="async">
           <div class="gallery-caption">Cassava Harvest</div>
         </div>
 
         <!-- 7 -->
         <div class="gallery-item">
-          <img src="images/gallery-cassava-truck.jpg" alt="Truck loaded with cassava chips">
+          <img src="images/gallery-cassava-truck.jpg" alt="Truck loaded with cassava chips" loading="lazy" decoding="async">
           <div class="gallery-caption">Logistics & Transport</div>
         </div>
 
         <!-- 8 -->
         <div class="gallery-item">
-          <img src="images/gallery-cassava-chips-bags.jpg" alt="Dried cassava chips in bags">
+          <img src="images/gallery-cassava-chips-bags.jpg" alt="Dried cassava chips in bags" loading="lazy" decoding="async">
           <div class="gallery-caption">Dried Cassava Chips</div>
         </div>
 
+        <!-- 9 -->
+        <div class="gallery-item wide short">
+          <img src="images/gallery-chips-drying-floor.jpg" alt="Cassava chips spread out to sun-dry" loading="lazy" decoding="async">
+          <div class="gallery-caption">Cassava Chips Sun-Drying</div>
+        </div>
+
+      </div>
+
+      <div class="gallery-sub">
+        <div class="tag">Farm to Factory</div>
+        <h2>Harvest &amp; Logistics</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item portrait">
+          <img src="images/gallery-harvested-roots.jpg" alt="Freshly harvested cassava roots" loading="lazy" decoding="async">
+          <div class="gallery-caption">Freshly Harvested Cassava</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-tricycle-harvest.jpg" alt="Tricycle loaded with cassava roots" loading="lazy" decoding="async">
+          <div class="gallery-caption">Harvest Hauled from the Farm</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-tricycle-roots.jpg" alt="Cassava roots loaded for transport" loading="lazy" decoding="async">
+          <div class="gallery-caption">Cassava Ready for Transport</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-truck-roots.jpg" alt="Truck carrying cassava roots" loading="lazy" decoding="async">
+          <div class="gallery-caption">Delivery of Cassava Roots</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-truck-bags.jpg" alt="Truck loaded with bags of dried cassava chips" loading="lazy" decoding="async">
+          <div class="gallery-caption">Dried Chips Loaded for Dispatch</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-night-loading.jpg" alt="Night loading of a truck with bagged cassava chips" loading="lazy" decoding="async">
+          <div class="gallery-caption">Night-Time Loading</div>
+        </div>
+      </div>
+
+      <div class="gallery-sub">
+        <div class="tag">Farm to Factory</div>
+        <h2>Drying &amp; Processing</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item portrait">
+          <img src="images/gallery-drying-field-1.jpg" alt="Drying field covered with cassava chips" loading="lazy" decoding="async">
+          <div class="gallery-caption">Open-Field Drying</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-drying-field-2.jpg" alt="Cassava chips drying on the ground" loading="lazy" decoding="async">
+          <div class="gallery-caption">Drying Field at the Site</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-field-workers.jpg" alt="Workers turning cassava chips on the drying field" loading="lazy" decoding="async">
+          <div class="gallery-caption">Workers on the Drying Field</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-weighing-chips.jpg" alt="Weighing a bag of dried cassava chips" loading="lazy" decoding="async">
+          <div class="gallery-caption">Weighing Dried Chips</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-peeled-cassava.jpg" alt="Freshly peeled cassava pieces" loading="lazy" decoding="async">
+          <div class="gallery-caption">Freshly Peeled Cassava</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-cassava-pieces.jpg" alt="Cassava pieces ready for processing" loading="lazy" decoding="async">
+          <div class="gallery-caption">Cassava Ready for Processing</div>
+        </div>
       </div>
     </div>
   </section>
