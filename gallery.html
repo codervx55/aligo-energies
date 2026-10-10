@@ -264,6 +264,7 @@
     line-height: 1.2; color: var(--green);
   }
   .gallery-item.portrait { aspect-ratio: 3/4; }
+  .gallery-two { grid-template-columns: repeat(2, 1fr); margin-top: 20px; }
   .gallery-item.short { aspect-ratio: 8/3; }
   .gallery-grid { grid-auto-flow: dense; }
 
@@ -423,12 +424,12 @@
           <div class="gallery-caption">Delivery of Cassava Roots</div>
         </div>
         <div class="gallery-item portrait">
-          <img src="images/gallery-truck-bags.jpg" alt="Truck loaded with bags of dried cassava chips" loading="lazy" decoding="async">
-          <div class="gallery-caption">Dried Chips Loaded for Dispatch</div>
-        </div>
-        <div class="gallery-item portrait">
           <img src="images/gallery-night-loading.jpg" alt="Night loading of a truck with bagged cassava chips" loading="lazy" decoding="async">
           <div class="gallery-caption">Night-Time Loading</div>
+        </div>
+        <div class="gallery-item portrait">
+          <img src="images/gallery-weighing-chips.jpg" alt="Weighing a bag of dried cassava chips" loading="lazy" decoding="async">
+          <div class="gallery-caption">Weighing Dried Chips</div>
         </div>
       </div>
 
@@ -449,15 +450,14 @@
           <img src="images/gallery-field-workers.jpg" alt="Workers turning cassava chips on the drying field" loading="lazy" decoding="async">
           <div class="gallery-caption">Workers on the Drying Field</div>
         </div>
-        <div class="gallery-item portrait">
-          <img src="images/gallery-weighing-chips.jpg" alt="Weighing a bag of dried cassava chips" loading="lazy" decoding="async">
-          <div class="gallery-caption">Weighing Dried Chips</div>
-        </div>
-        <div class="gallery-item portrait">
+      </div>
+
+      <div class="gallery-grid gallery-two">
+        <div class="gallery-item">
           <img src="images/gallery-peeled-cassava.jpg" alt="Freshly peeled cassava pieces" loading="lazy" decoding="async">
           <div class="gallery-caption">Freshly Peeled Cassava</div>
         </div>
-        <div class="gallery-item portrait">
+        <div class="gallery-item">
           <img src="images/gallery-cassava-pieces.jpg" alt="Cassava pieces ready for processing" loading="lazy" decoding="async">
           <div class="gallery-caption">Cassava Ready for Processing</div>
         </div>
