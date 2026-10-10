@@ -332,6 +332,9 @@
   }
 
   /* Responsive */
+  .form-status { font-size: 14.5px; line-height: 1.6; border-radius: 6px; }
+  .form-status.ok { padding: 14px 16px; background: #e6f2ea; color: #123e2b; border: 1px solid #b9d9c4; }
+  .form-status.err { padding: 14px 16px; background: #fbeaea; color: #8a1f1f; border: 1px solid #efc4c4; }
   @media (max-width: 980px) {
     .main-nav { display: none; }
     .menu-toggle { display: block; }
@@ -418,7 +421,7 @@
               </div>
               <div>
                 <b>Email</b>
-                <span>aligoenergiesnigeria@gmail.com</span>
+                <span>services@aligoenergies.ng<br>aligoenergiesnigeria@gmail.com</span>
               </div>
             </li>
           </ul>
@@ -428,7 +431,8 @@
         </div>
 
         <!-- Form -->
-        <form class="contact-form" data-demo-form>
+        <form class="contact-form" name="contact" method="POST">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;">
           <div id="inquiry-context" class="inquiry-context" role="status" aria-live="polite">
             <strong>You’re contacting us about:</strong>
             <span id="inquiry-context-text"></span>
@@ -469,6 +473,9 @@
             </div>
             <div class="form-group full">
               <button type="submit" class="btn btn-gold">Send Message →</button>
+            </div>
+            <div class="form-group full">
+              <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
             </div>
           </div>
         </form>
@@ -515,6 +522,7 @@
         <p>Abúlè Àrè, Alamala, Abeokuta<br>Ogun State, Nigeria</p>
         <p style="margin-top:12px;">+234 913 735 3102</p>
         <p>aligoenergiesnigeria@gmail.com</p>
+        <p>services@aligoenergies.ng</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -578,6 +586,51 @@
     if (incomingSubject && message && !message.value.trim()) {
       message.placeholder = 'Tell us a little more about your interest in ' + (subject.value || incomingSubject) + '...';
     }
+  })();
+
+  // Contact form -> Web3Forms (emails each message to the inbox tied to the access key)
+  (function () {
+    // Get a free key at https://web3forms.com (enter the email that should receive messages).
+    // Add a second key (another email) to notify two inboxes. Leave a PASTE_ value to skip it.
+    const ACCESS_KEYS = ['ae2dae35-ca38-4f1c-8439-a592c85c8711', 'PASTE_ACCESS_KEY_FOR_EMAIL_2'];
+
+    const form = document.querySelector('form[name="contact"]');
+    if (!form) return;
+    const status = document.getElementById('formStatus');
+    const btn = form.querySelector('button[type="submit"]');
+    const fail = 'Sorry, your message could not be sent. Please email us at services@aligoenergies.ng or call +234 913 735 3102.';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const keys = ACCESS_KEYS.filter(function (k) { return k && k.indexOf('PASTE_') !== 0; });
+      status.className = 'form-status'; status.textContent = '';
+      if (!keys.length) { status.className = 'form-status err'; status.textContent = fail; return; }
+
+      const label = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending…';
+      const d = Object.fromEntries(new FormData(form));
+      const payload = {
+        name: d.name, email: d.email, phone: d.phone, category: d.category,
+        inquiry_subject: d.subject, message: d.message, botcheck: d.botcheck || '',
+        from_name: 'Aligo Energies Website', replyto: d.email,
+        subject: 'Aligo Energies website: ' + (d.category || 'Enquiry') + (d.subject && d.subject !== d.category ? ' - ' + d.subject : '')
+      };
+
+      Promise.all(keys.map(function (k) {
+        return fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(Object.assign({ access_key: k }, payload))
+        }).then(function (r) { return r.json(); }).catch(function () { return { success: false }; });
+      })).then(function (results) {
+        if (!results.some(function (r) { return r && r.success; })) throw new Error('failed');
+        status.className = 'form-status ok';
+        status.textContent = 'Thank you — your message has been sent. We will get back to you shortly.';
+        form.reset();
+      }).catch(function () {
+        status.className = 'form-status err'; status.textContent = fail;
+      }).then(function () { btn.disabled = false; btn.textContent = label; });
+    });
   })();
 </script>
 </body>
