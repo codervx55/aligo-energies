@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investors & Partners | Aligo Energies Ltd</title>
+<meta name="description" content="The ₦75M investment opportunity and partnership pathways at Aligo Energies.">
+<link rel="icon" href="images/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #123e2b;
+    --green-dark: #0d2c1d;
+    --gold: #d7ae46;
+    --gold-light: #e8c55a;
+    --cream: #f7f5ee;
+    --cream-dark: #f0eee4;
+    --ink: #1d2a22;
+    --muted: #5c6b62;
+    --line: #e6e4d9;
+    --white: #ffffff;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  .container {
+    width: min(1140px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  /* ========== HEADER ========== */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 253, 248, 0.9);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(230, 228, 217, 0.8);
+  }
+  .nav-wrap {
+    width: min(1220px, calc(100% - 40px));
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .brand .name {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--green);
+  }
+  .brand .sub {
+    display: block;
+    font-size: 10px;
+    color: #72786f;
+    letter-spacing: 0.03em;
+  }
+  .main-nav {
+    display: flex;
+    gap: 22px;
+  }
+  .main-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3a4a40;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover,
+  .main-nav a.active {
+    color: #a47a1c;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: #18291e;
+  }
+  .btn-gold:hover {
+    background: #c9a03a;
+    transform: translateY(-2px);
+  }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--green);
+    cursor: pointer;
+  }
+
+  /* ========== PAGE HERO ========== */
+  .page-hero {
+    background: linear-gradient(105deg, rgba(9,35,22,0.95) 0%, rgba(9,35,22,0.85) 100%);
+    color: white;
+    padding: 110px 0 90px;
+  }
+  .page-hero .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+  .page-hero .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: currentColor;
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    max-width: 700px;
+  }
+  .page-hero .lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e0e8e2;
+    max-width: 620px;
+  }
+
+  /* ========== SECTIONS ========== */
+  .section {
+    padding: 110px 0;
+  }
+  .section-cream { background: var(--cream); }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #a47a1c;
+    margin-bottom: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: currentColor;
+  }
+
+  /* Invest Banner */
+  .invest-banner {
+    background: var(--green);
+    border-radius: 14px;
+    padding: 56px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .invest-banner::after {
+    content: "A";
+    position: absolute;
+    right: 30px;
+    top: -80px;
+    font-family: var(--serif);
+    font-size: 280px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+  .invest-banner h2 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 36px);
+    color: white;
+    margin-bottom: 12px;
+  }
+  .invest-amount {
+    font-family: var(--serif);
+    font-size: 56px;
+    color: var(--gold-light);
+    margin: 12px 0 16px;
+  }
+  .invest-banner p {
+    color: #c8d4cb;
+    margin-bottom: 28px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .invest-list {
+    list-style: none;
+  }
+  .invest-list li {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    font-size: 15px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .invest-list li:last-child { border-bottom: none; }
+  .invest-list svg {
+    width: 18px;
+    height: 18px;
+    color: var(--gold-light);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Partnership section */
+  .po-section {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0;
+    background: var(--cream-dark);
+  }
+  .po-head {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 56px;
+  }
+  .po-head .eyebrow {
+    justify-content: center;
+  }
+  .po-head h2 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 600;
+    color: var(--green);
+    margin: 14px 0 16px;
+  }
+  .po-head p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .po-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .po-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 36px 28px 30px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  .po-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(18, 40, 28, 0.1);
+  }
+  .po-num {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 600;
+    color: rgba(18, 62, 43, 0.08);
+  }
+  .po-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: var(--green);
+    color: var(--gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+  .po-icon svg { width: 24px; height: 24px; }
+  .po-card h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  .po-card p {
+    flex: 1;
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  .po-link {
+    margin-top: 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .po-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.25s;
+  }
+  .po-card:hover .po-link svg {
+    transform: translateX(5px);
+  }
+
+  /* Featured card */
+  .po-featured {
+    background: linear-gradient(155deg, #0f3324, #1b4d34);
+    border-color: transparent;
+  }
+  .po-featured .po-num { color: rgba(255,255,255,0.08); }
+  .po-featured .po-icon {
+    background: var(--gold-light);
+    color: var(--green);
+  }
+  .po-featured h3 { color: white; }
+  .po-featured p { color: #c8d4cb; }
+  .po-featured .po-link { color: var(--gold-light); }
+  .po-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 5px 12px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: var(--gold-light);
+    border-radius: 999px;
+  }
+
+  /* Bottom CTA */
+  .po-cta {
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    background: white;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: 12px;
+    padding: 32px 36px;
+  }
+  .po-cta h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+  .po-cta p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 520px;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--green-dark);
+    color: #c8d4cb;
+    padding: 70px 0 30px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  .footer .name { color: white; }
+  .footer h4 {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .footer a, .footer p, .footer li {
+    font-size: 14px;
+    color: #b0c0b5;
+  }
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 10px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #8fa39a;
+  }
+
+  /* Responsive */
+  @media (max-width: 980px) {
+    .main-nav { display: none; }
+    .menu-toggle { display: block; }
+    .invest-banner { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+    .po-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .po-grid { grid-template-columns: 1fr; }
+    .page-hero { padding: 90px 0 70px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .invest-banner { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img src="images/logo.jpeg" alt="Aligo Energies">
+      <span>
+        <span class="name">ALIGO ENERGIES</span>
+        <span class="sub">Cassava Refinery Complex</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Project</a>
+      <a href="products.html">Products</a>
+      <a href="sustainability.html">Sustainability</a>
+      <a href="investors.html" class="active">Investors</a>
+      <a href="news.html">News</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="investors.html" class="btn btn-gold">Partner With Us →</a>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Investors & Partners</div>
+      <h1>Partner With Aligo Energies</h1>
+      <p class="lead">We welcome strategic investors, development finance institutions, commercial partners, and industrial buyers who share our vision of transforming Nigeria’s cassava industry.</p>
+    </div>
+  </section>
+
+  <!-- INVESTMENT BANNER -->
+  <section class="section section-cream">
+    <div class="container">
+      <div class="invest-banner">
+        <div>
+          <div class="eyebrow" style="color:var(--gold-light);">Current Opportunity</div>
+          <h2>Strategic Equity Investment</h2>
+          <div class="invest-amount">₦75M</div>
+          <p>Investment requirement for completion of Phase 1 infrastructure and operational readiness.</p>
+          <a href="contact.html?subject=Equity%20Investment" class="btn btn-gold">Start a Conversation →</a>
+        </div>
+        <div>
+          <div class="eyebrow" style="color:var(--gold-light);">Why Invest?</div>
+          <ul class="invest-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Infrastructure-backed — approx. 75% construction completed
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Strong industrial demand across ethanol, feed & export markets
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Clear phased growth from chips to full derivatives
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Experienced management in the cassava value chain
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Pathway to ₦2 Billion BOI financing
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Attractive long-term growth potential
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERSHIP OPPORTUNITIES -->
+  <section class="po-section" id="partnerships">
+    <div class="container">
+      <div class="po-head">
+        <div class="eyebrow">Ways to Work With Us</div>
+        <h2>Partnership Opportunities</h2>
+        <p>Six practical ways to grow with Aligo Energies — from direct equity to long-term supply and export partnerships.</p>
+      </div>
+
+      <div class="po-grid">
+        <article class="po-card po-featured">
+          <span class="po-num">01</span>
+          <div class="po-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          </div>
+          <span class="po-tag">Current · ₦75M</span>
+          <h3>Equity Investment</h3>
+          <p>Direct ownership stake in the refinery complex.</p>
+          <a href="contact.html?subject=Equity%20Investment" class="po-link">Start a conversation →</a>
+        </article>
+
+        <article class="po-card">
+          <span class="po-num">02</span>
+          <div class="po-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+          </div>
+          <h3>Project Finance</h3>
+          <p>Structured financing for infrastructure and equipment.</p>
+          <a href="contact.html?subject=Project%20Finance" class="po-link">Discuss this →</a>
+        </article>
+
+        <article class="po-card">
+          <span class="po-num">03</span>
+          <div class="po-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+          </div>
+          <h3>Offtake Agreements</h3>
+          <p>Secure long-term supply of cassava-derived products.</p>
+          <a href="contact.html?subject=Offtake%20Agreements" class="po-link">Discuss this →</a>
+        </article>
+
+        <article class="po-card">
+          <span class="po-num">04</span>
+          <div class="po-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Equipment Partnerships</h3>
+          <p>Supply and support of processing equipment.</p>
+          <a href="contact.html?subject=Equipment%20Partnerships" class="po-link">Discuss this →</a>
+        </article>
+
+        <article class="po-card">
+          <span class="po-num">05</span>
+          <div class="po-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+          </div>
+          <h3>Farmer Cooperatives</h3>
+          <p>Structured supply partnerships with cassava farmers.</p>
+          <a href="contact.html?subject=Farmer%20Cooperatives" class="po-link">Discuss this →</a>
+        </article>
+
+        <article class="po-card">
+          <span class="po-num">06</span>
+          <div class="po-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Export Partnerships</h3>
+          <p>Distribution partnerships into regional and global markets.</p>
+          <a href="contact.html?subject=Export%20Partnerships" class="po-link">Discuss this →</a>
+        </article>
+      </div>
+
+      <div class="po-cta">
+        <div>
+          <h3>Not sure which route fits you?</h3>
+          <p>Reach out with what you have in mind and we will discuss the best way to work together.</p>
+        </div>
+        <a href="contact.html?subject=General%20Partnership%20Inquiry" class="btn btn-gold">Start a Conversation →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:16px;">
+          <img src="images/logo.jpeg" alt="Logo" style="width:42px;height:42px;border-radius:50%;">
+          <span>
+            <span class="name">ALIGO ENERGIES</span>
+            <span class="sub" style="color:#8fa39a;">Cassava Refinery Complex</span>
+          </span>
+        </a>
+        <p>Transforming cassava into industrial power — production, progress and prosperity for Nigeria’s agro-industrial future.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="project.html">The Project</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="sustainability.html">Sustainability</a></li>
+          <li><a href="news.html">News & Media</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="investors.html">Investors & Partners</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="downloads.html">Resource Centre</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Abúlè Àrè, Alamala, Abeokuta<br>Ogun State, Nigeria</p>
+        <p style="margin-top:12px;">+234 913 735 3102</p>
+        <p>aligoenergiesnigeria@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aligo Energies Ltd. All rights reserved. RC:8139550</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Terms & Conditions</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('mainNav');
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.style.display === 'flex';
+    nav.style.display = isOpen ? 'none' : 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '80px';
+    nav.style.left = '0';
+    nav.style.right = '0';
+    nav.style.background = '#fffdf8';
+    nav.style.padding = '20px';
+    nav.style.borderBottom = '1px solid #e6e4d9';
+    nav.style.gap = '16px';
+    nav.style.zIndex = '99';
+  });
+</script>
+</body>
+</html>

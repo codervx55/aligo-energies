@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News & Media | Aligo Energies Ltd</title>
+<meta name="description" content="Latest updates and announcements from Aligo Energies Ltd.">
+<link rel="icon" href="images/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #123e2b;
+    --green-dark: #0d2c1d;
+    --gold: #d7ae46;
+    --gold-light: #e8c55a;
+    --cream: #f7f5ee;
+    --cream-dark: #f0eee4;
+    --ink: #1d2a22;
+    --muted: #5c6b62;
+    --line: #e6e4d9;
+    --white: #ffffff;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  .container {
+    width: min(1140px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  /* ========== HEADER ========== */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 253, 248, 0.9);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(230, 228, 217, 0.8);
+  }
+  .nav-wrap {
+    width: min(1220px, calc(100% - 40px));
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .brand .name {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--green);
+  }
+  .brand .sub {
+    display: block;
+    font-size: 10px;
+    color: #72786f;
+    letter-spacing: 0.03em;
+  }
+  .main-nav {
+    display: flex;
+    gap: 22px;
+  }
+  .main-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3a4a40;
+    transition: color 0.2s;
+  }
+  .main-nav a:hover,
+  .main-nav a.active {
+    color: #a47a1c;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: #18291e;
+  }
+  .btn-gold:hover {
+    background: #c9a03a;
+    transform: translateY(-2px);
+  }
+  .btn-outline-dark {
+    border: 1.5px solid var(--green);
+    color: var(--green);
+    background: transparent;
+  }
+  .btn-outline-dark:hover {
+    background: var(--green);
+    color: white;
+  }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--green);
+    cursor: pointer;
+  }
+
+  /* ========== PAGE HERO ========== */
+  .page-hero {
+    background: linear-gradient(105deg, rgba(9,35,22,0.95) 0%, rgba(9,35,22,0.85) 100%);
+    color: white;
+    padding: 110px 0 90px;
+  }
+  .page-hero .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+  .page-hero .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: currentColor;
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .page-hero .lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e0e8e2;
+    max-width: 540px;
+  }
+
+  /* ========== SECTIONS ========== */
+  .section {
+    padding: 110px 0;
+  }
+  .section-cream { background: var(--cream); }
+
+  /* News list */
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .news-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .news-item:first-child {
+    padding-top: 0;
+  }
+  .news-item:last-child {
+    border-bottom: none;
+  }
+  .news-meta {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a47a1c;
+    margin-bottom: 10px;
+  }
+  .news-item h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .news-item p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 580px;
+  }
+  .news-note {
+    margin-top: 48px;
+    padding: 20px 24px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 14.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--green-dark);
+    color: #c8d4cb;
+    padding: 70px 0 30px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  .footer .name { color: white; }
+  .footer h4 {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .footer a, .footer p, .footer li {
+    font-size: 14px;
+    color: #b0c0b5;
+  }
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 10px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #8fa39a;
+  }
+
+  /* Responsive */
+  @media (max-width: 980px) {
+    .main-nav { display: none; }
+    .menu-toggle { display: block; }
+    .news-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+  @media (max-width: 600px) {
+    .page-hero { padding: 90px 0 70px; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img src="images/logo.jpeg" alt="Aligo Energies">
+      <span>
+        <span class="name">ALIGO ENERGIES</span>
+        <span class="sub">Cassava Refinery Complex</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Project</a>
+      <a href="products.html">Products</a>
+      <a href="sustainability.html">Sustainability</a>
+      <a href="investors.html">Investors</a>
+      <a href="news.html" class="active">News</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="investors.html" class="btn btn-gold">Partner With Us →</a>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">News & Media</div>
+      <h1>Latest Updates</h1>
+      <p class="lead">Stay informed with the latest developments from Aligo Energies.</p>
+    </div>
+  </section>
+
+  <!-- NEWS LIST -->
+  <section class="section section-cream">
+    <div class="container">
+      <div class="news-list">
+
+        <div class="news-item">
+          <div>
+            <div class="news-meta">Construction Progress</div>
+            <h3>Phase 1 construction reaches approximately 75% completion</h3>
+            <p>An update on infrastructure milestones at the Alamala site.</p>
+          </div>
+          <a href="#" class="btn btn-outline-dark">Read More →</a>
+        </div>
+
+        <div class="news-item">
+          <div>
+            <div class="news-meta">Partnership Announcements</div>
+            <h3>Building relationships with local farmer cooperatives</h3>
+            <p>How the farmer integration model is taking shape.</p>
+          </div>
+          <a href="#" class="btn btn-outline-dark">Read More →</a>
+        </div>
+
+        <div class="news-item">
+          <div>
+            <div class="news-meta">Corporate News</div>
+            <h3>Aligo Energies outlines Phase 2 expansion plans</h3>
+            <p>A look ahead at ethanol, starch, and flour production.</p>
+          </div>
+          <a href="#" class="btn btn-outline-dark">Read More →</a>
+        </div>
+
+        <div class="news-item">
+          <div>
+            <div class="news-meta">Industry Insights</div>
+            <h3>The growing demand for industrial cassava derivatives</h3>
+            <p>Context on the market Aligo Energies is built to serve.</p>
+          </div>
+          <a href="#" class="btn btn-outline-dark">Read More →</a>
+        </div>
+
+      </div>
+
+      <div class="news-note">
+        This section will be updated regularly with construction progress, partnership announcements, product launches, industry insights, community engagement, corporate news, and press releases.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:16px;">
+          <img src="images/logo.jpeg" alt="Logo" style="width:42px;height:42px;border-radius:50%;">
+          <span>
+            <span class="name">ALIGO ENERGIES</span>
+            <span class="sub" style="color:#8fa39a;">Cassava Refinery Complex</span>
+          </span>
+        </a>
+        <p>Transforming cassava into industrial power — production, progress and prosperity for Nigeria’s agro-industrial future.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="project.html">The Project</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="sustainability.html">Sustainability</a></li>
+          <li><a href="news.html">News & Media</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="investors.html">Investors & Partners</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="downloads.html">Resource Centre</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Abúlè Àrè, Alamala, Abeokuta<br>Ogun State, Nigeria</p>
+        <p style="margin-top:12px;">+234 913 735 3102</p>
+        <p>aligoenergiesnigeria@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aligo Energies Ltd. All rights reserved. RC:8139550</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Terms & Conditions</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('mainNav');
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.style.display === 'flex';
+    nav.style.display = isOpen ? 'none' : 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '80px';
+    nav.style.left = '0';
+    nav.style.right = '0';
+    nav.style.background = '#fffdf8';
+    nav.style.padding = '20px';
+    nav.style.borderBottom = '1px solid #e6e4d9';
+    nav.style.gap = '16px';
+    nav.style.zIndex = '99';
+  });
+</script>
+</body>
+</html>
