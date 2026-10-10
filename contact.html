@@ -14,13 +14,65 @@
 <main class="main"><div class="page-title dark-background plain" ><div class="container position-relative"><h1>Contact Us</h1><p>Investors, customers, suppliers, farmers and partners</p><nav class="breadcrumbs"><ol><li><a href="index.html">Home</a></li><li class="current">Contact Us</li></ol></nav></div></div><section class="section"><div class="container"><div class="row gy-4">
 <div class="col-lg-4"><div class="contact-card"><h4>Corporate office</h4><p>Abúlé Àrè, Alamala, Abeokuta<br>Ogun State, Nigeria</p><h4>Phone</h4><p><a href="tel:+2349137353102">+234 913 735 3102</a></p><h4>Email</h4><p><a href="mailto:Services@aligoenergies.ng">Services@aligoenergies.ng</a></p><h4>Website</h4><p><a href="https://aligobrands.blogspot.com">aligobrands.blogspot.com</a></p></div></div>
 <div class="col-lg-8"><h2>We'd love to hear from you</h2><p>Whether you are an investor, customer, supplier, farmer, government agency or partner, we welcome the chance to connect.</p>
-<div id="sent" class="sent-msg d-none">Thank you. We have received your message and will reply soon.</div>
-<form name="contact" method="POST" action="contact.html?sent=1" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="contact"><p class="d-none"><label>Leave this empty: <input name="bot-field"></label></p>
+<div id="sent" class="sent-msg d-none" role="status" aria-live="polite">Thank you. We have received your message and will reply soon.</div>
+<form name="contact" id="contactForm" method="POST"><input type="checkbox" name="botcheck" class="d-none" tabindex="-1" autocomplete="off">
 <div class="row g-3"><div class="col-md-6"><input class="form-control" name="name" placeholder="Full name" autocomplete="name" required></div><div class="col-md-6"><input class="form-control" type="email" name="email" placeholder="Email address" autocomplete="email" required></div>
 <div class="col-md-6"><input class="form-control" type="tel" name="phone" placeholder="Phone number" autocomplete="tel"></div><div class="col-md-6"><select class="form-select" name="category" aria-label="Inquiry category"><option>General Enquiries</option><option>Investor Relations</option><option>Partnership Opportunities</option><option>Product Sales</option><option>Farmer Registration</option><option>Procurement</option><option>Media &amp; Public Relations</option></select></div>
 <div class="col-12"><input class="form-control" name="subject" placeholder="What would you like to discuss?" maxlength="140"></div><div class="col-12"><textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea></div>
 <div class="col-12"><button class="btn-aligo" type="submit">Send message</button></div></div></form></div></div></div></section>
-<script>(function(){var p=new URLSearchParams(location.search);if(p.get("sent")){document.getElementById("sent").classList.remove("d-none")}var d=p.get("doc");if(d){var s=document.querySelector('[name=subject]');if(s)s.value="Request for: "+d}})();</script></main>
+<script>
+(function () {
+  // Prefill the subject when arriving from the Downloads page (?doc=...)
+  var p = new URLSearchParams(location.search);
+  var d = p.get("doc");
+  if (d) { var s = document.querySelector('[name=subject]'); if (s) s.value = "Request for: " + d; }
+
+  // Web3Forms: add a second key (another email) to notify two inboxes.
+  var ACCESS_KEYS = ['ae2dae35-ca38-4f1c-8439-a592c85c8711', 'PASTE_ACCESS_KEY_FOR_EMAIL_2'];
+
+  var form = document.getElementById('contactForm');
+  var status = document.getElementById('sent');
+  var btn = form.querySelector('button[type="submit"]');
+  var okText = 'Thank you. We have received your message and will reply soon.';
+  var errText = 'Sorry, your message could not be sent. Please email us at Services@aligoenergies.ng or call +234 913 735 3102.';
+
+  function show(ok, text) {
+    status.textContent = text;
+    status.classList.remove('d-none');
+    status.style.cssText = ok ? '' : 'background:#fbeaea;color:#8a1f1f;border-color:#efc4c4;';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var keys = ACCESS_KEYS.filter(function (k) { return k && k.indexOf('PASTE_') !== 0; });
+    if (!keys.length) { show(false, errText); return; }
+
+    var label = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending…';
+    var f = Object.fromEntries(new FormData(form));
+    var payload = {
+      name: f.name, email: f.email, phone: f.phone, category: f.category,
+      inquiry_subject: f.subject, message: f.message, botcheck: f.botcheck || '',
+      from_name: 'Aligo Energies Website', replyto: f.email,
+      subject: 'Aligo Energies website: ' + (f.category || 'Enquiry') + (f.subject ? ' - ' + f.subject : '')
+    };
+
+    Promise.all(keys.map(function (k) {
+      return fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.assign({ access_key: k }, payload))
+      }).then(function (r) { return r.json(); }).catch(function () { return { success: false }; });
+    })).then(function (results) {
+      if (!results.some(function (r) { return r && r.success; })) throw new Error('failed');
+      show(true, okText);
+      form.reset();
+    }).catch(function () {
+      show(false, errText);
+    }).then(function () { btn.disabled = false; btn.textContent = label; });
+  });
+})();
+</script></main>
 <footer id="footer" class="footer dark-background"><div class="footer-top"><div class="container"><div class="row gy-4">
 <div class="col-lg-5 col-md-12 footer-about"><a href="index.html" class="logo d-flex align-items-center"><img src="assets/img/logo.jpeg" alt="Aligo Energies Ltd logo" class="foot-logo"></a>
 <p class="mt-3">Turning cassava into industrial products for manufacturing, food, energy and export markets.</p>
